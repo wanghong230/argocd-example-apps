@@ -18,8 +18,8 @@ spec:
         name: guestbook-ui
         ports:
         - containerPort: 80
-#         args:
-#         - '300'
-#         command:
-#         - sleep
+        args:
+        - '120'
+        command:
+        - sleep
         
