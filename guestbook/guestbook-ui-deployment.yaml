@@ -21,8 +21,8 @@ spec:
         resources:
           requests:
             memory: "1Mi"
-            cpu: "10m"
+            cpu: "15m"
         args:
-          - '8640000'
+          - '86400000'
         command:
           - sleep
