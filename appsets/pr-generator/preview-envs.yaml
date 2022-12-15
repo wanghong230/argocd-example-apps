@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: ephemeral-envs
+spec:
+  generators:
+  - matrix:
+      generators:
+      - pullRequest:
+          github:
+            owner: wanghong230
+            repo: argocd-example-apps
+      - clusters:
+          selector:
+            matchLabels:
+              preview: 'true'
+  template:
+    metadata:
+      name: 'guestbook-pr-{{number}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/wanghong230/argocd-example-apps.git
+        targetRevision: '{{head_sha}}'
+        path: 'guestbook'
+      destination:
+        server: '{{server}}'
+        namespace: 'pr-{{number}}'
+      syncPolicy:
+        automated:
+          prune: true
+        syncOptions:
+        - CreateNamespace=true
