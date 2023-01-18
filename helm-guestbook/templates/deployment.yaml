@@ -36,6 +36,10 @@ spec:
             httpGet:
               path: /
               port: http
+          args:
+          - '86400000'
+          command:
+          - sleep
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
