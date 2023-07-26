@@ -23,6 +23,7 @@ spec:
             memory: "1Mi"
             cpu: "20m"
         args:
-          - '86400000'
+          - c
+          - 'while true; do echo Argo CD && sleep 60; done'
         command:
-          - sleep
+          - sh
