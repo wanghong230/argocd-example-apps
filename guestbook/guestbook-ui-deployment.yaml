@@ -24,6 +24,6 @@ spec:
             cpu: "20m"
         args:
           - -c
-          - "while true; do echo Argo CD && sleep 1; done"
+          - "while true; do echo Argo CD from Akuity && sleep 1; done"
         command:
           - sh
